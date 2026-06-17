@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:smartbasket_web/pages/privacy_policy.dart';
 import 'package:smartbasket_web/pages/terms_conditions.dart';
 
 import 'components/header.dart';
@@ -36,7 +37,12 @@ class App extends StatelessComponent {
           Route(
             path: '/terms-conditions',
             title: 'Terms & Conditions',
-            builder: (context, state) =>  TermsPage(),
+            builder: (context, state) =>  TermsConditions(),
+          ),
+          Route(
+            path: '/privacy-policy',
+            title: 'Privacy Policy',
+            builder: (context, state) =>  PrivacyPolicy(),
           ),
         ],
       ),

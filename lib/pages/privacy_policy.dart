@@ -1,24 +1,23 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-
 import '../constants/app_colors.dart';
 
-class TermsConditions extends StatelessComponent {
-  const TermsConditions({super.key});
+class PrivacyPolicy extends StatelessComponent {
+  const PrivacyPolicy({super.key});
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'terms-container', [
+    return div(classes: 'privacy-container', [
       // ── Hero Banner ─────────────────────────────────────────────
-      div(classes: 'terms-banner', [
-        Component.text('Terms & Conditions'),
+      div(classes: 'privacy-banner', [
+        Component.text('Privacy Policy'),
       ]),
 
       // ── Page Body ────────────────────────────────────────────────
-      div(classes: 'terms-content', [
+      div(classes: 'privacy-content', [
         // Top intro block
         div(classes: 'section-block', [
-          _buildHeading('Terms & Conditions', 'heading-xl'),
+          _buildHeading('Privacy & Policy', 'heading-xl'),
           _buildParagraph(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
                 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
@@ -45,8 +44,8 @@ class TermsConditions extends StatelessComponent {
     return div(classes: 'section-block', [
       _buildHeading(title, 'heading-lg'),
       _buildParagraph(
-        'By accessing or using this application, you agree to be bound by these Terms and Conditions. '
-            'If you do not agree with any part of these terms, please discontinue use of the application.',
+        'By accessing or using this application, you agree to be bound by these privacy and Conditions. '
+            'If you do not agree with any part of these privacy, please discontinue use of the application.',
       ),
     ]);
   }
@@ -61,7 +60,7 @@ class TermsConditions extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
-    css('.terms-container').styles(
+    css('.privacy-container').styles(
       display: Display.flex,
       width: 100.percent,
       boxSizing: BoxSizing.borderBox,
@@ -70,7 +69,7 @@ class TermsConditions extends StatelessComponent {
     ),
 
     // ── Banner ────────────────────────────────────────────────────
-    css('.terms-banner').styles(
+    css('.privacy-banner').styles(
       display: Display.flex,
       width: 100.percent,
       height: 281.px,
@@ -89,7 +88,7 @@ class TermsConditions extends StatelessComponent {
     ),
 
     // ── Body wrapper ──────────────────────────────────────────────
-    css('.terms-content').styles(
+    css('.privacy-content').styles(
       display: Display.flex,
       width: 100.percent,
       maxWidth: 1440.px,
@@ -147,17 +146,17 @@ class TermsConditions extends StatelessComponent {
 
     // Responsive: Reduce padding on smaller screens
     css('@media (max-width: 1024px)', [
-      css('.terms-content').styles(
+      css('.privacy-content').styles(
         padding: Padding.symmetric(horizontal: 40.px, vertical: 40.px),
       ),
     ]),
 
     css('@media (max-width: 600px)', [
-      css('.terms-content').styles(
+      css('.privacy-content').styles(
         padding: Padding.symmetric(horizontal: 20.px, vertical: 30.px),
         gap: Gap.all(40.px),
       ),
-      css('.terms-banner, .heading-xl').styles(
+      css('.privacy-banner, .heading-xl').styles(
         height: 200.px,
         fontSize: 40.px,
       ),
