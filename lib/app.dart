@@ -36,7 +36,7 @@ class App extends StatelessComponent {
           Route(
             path: '/terms-conditions',
             title: 'Terms & Conditions',
-            builder: (context, state) =>  TermsConditions(),
+            builder: (context, state) =>  TermsPage(),
           ),
         ],
       ),
