@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:smartbasket_web/pages/terms_conditions.dart';
 
 import 'components/header.dart';
 import 'pages/about.dart';
@@ -25,12 +26,17 @@ class App extends StatelessComponent {
           Route(
             path: '/',
             title: 'Home',
-            builder: (context, state) => const Home(),
+            builder: (context, state) =>  Home(),
           ),
           Route(
             path: '/about',
             title: 'About',
             builder: (context, state) => const About(),
+          ),
+          Route(
+            path: '/terms-conditions',
+            title: 'Terms & Conditions',
+            builder: (context, state) =>  TermsConditions(),
           ),
         ],
       ),
