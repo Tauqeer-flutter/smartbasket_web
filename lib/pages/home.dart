@@ -10,7 +10,6 @@ class Home extends StatelessComponent {
   static List<StyleRule> get styles => [
     css('.body').styles(
       width: 100.percent,
-      margin: 120.px,
     ),
   ];
 }
