@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../constants/app_colors.dart';
 import '../constants/assets.dart';
 
 class Header extends StatelessComponent {
@@ -10,7 +11,12 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'header-inner', [
-        img(src: SvgAssets.logo, height: 40),
+        a(href: '/', [
+          img(
+            src: SvgAssets.logo,
+            height: 40,
+          ),
+        ]),
         nav([
           a(href: '/about', [.text('About')]),
           a(href: '/how-it-works', [.text('How It Works')]),
@@ -34,7 +40,7 @@ class Header extends StatelessComponent {
         boxSizing: .borderBox,
         justifyContent: .center,
         alignItems: .center,
-        color: Color('#FFFFFF'),
+        color: AppColors.white,
       ),
       css('.header-inner').styles(
         display: .flex,
@@ -57,7 +63,8 @@ class Header extends StatelessComponent {
             textDecoration: .none,
           ),
           css('&:hover').styles(
-            color: Color('#FFFFFF'),
+            color: AppColors.darkBlue,
+            fontWeight: FontWeight.bold,
           ),
         ]),
       ]),
