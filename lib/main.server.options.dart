@@ -8,6 +8,7 @@ import 'package:jaspr/server.dart';
 import 'package:smartbasket_web/components/header.dart' as _header;
 import 'package:smartbasket_web/constants/theme.dart' as _theme;
 import 'package:smartbasket_web/pages/about.dart' as _about;
+import 'package:smartbasket_web/pages/home.dart' as _home;
 import 'package:smartbasket_web/app.dart' as _app;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -34,5 +35,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._app.App.styles,
     ..._header.Header.styles,
     ..._about.About.styles,
+    ..._home.Home.styles,
   ],
 );

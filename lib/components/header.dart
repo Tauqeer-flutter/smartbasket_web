@@ -45,7 +45,6 @@ class Header extends StatelessComponent {
       css('.header-inner').styles(
         display: .flex,
         width: 100.percent,
-        maxWidth: 1200.px,
         flexDirection: .row,
         justifyContent: .spaceBetween,
         alignItems: .center,

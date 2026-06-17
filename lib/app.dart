@@ -49,7 +49,7 @@ class App extends StatelessComponent {
         display: .flex,
         height: 100.vh,
         flexDirection: .column,
-        flexWrap: .wrap,
+        // flexWrap: .wrap,
       ),
       css('section').styles(
         display: .flex,
