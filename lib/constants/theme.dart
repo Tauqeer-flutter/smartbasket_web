@@ -10,7 +10,7 @@ const primaryColor = Color('#01589B');
 @css
 List<StyleRule> get styles => [
   // Special import rule to include to another css file.
-  css.import('https://fonts.googleapis.com/css?family=Roboto'),
+  css.import('https://fonts.googleapis.com/css?family=Instrument%20Sans'),
   // Each style rule takes a valid css selector and a set of styles.
   // Styles are defined using type-safe css bindings and can be freely chained and nested.
   css('html, body').styles(
@@ -18,7 +18,7 @@ List<StyleRule> get styles => [
     minHeight: 100.vh,
     padding: .zero,
     margin: .zero,
-    fontFamily: const .list([FontFamily('Roboto'), FontFamilies.sansSerif]),
+    fontFamily: const .list([FontFamily('Instrument Sans'), FontFamilies.sansSerif]),
   ),
   css('h1').styles(
     margin: .unset,
