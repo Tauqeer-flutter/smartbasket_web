@@ -4,6 +4,7 @@ import 'package:smartbasket_web/components/feature_grid.dart';
 import 'package:smartbasket_web/components/pricing.dart';
 
 import '../components/chip.dart';
+import '../components/how_it_works.dart';
 import '../components/stats_row.dart';
 import '../components/trusted_logos.dart';
 import '../constants/app_colors.dart';
@@ -56,39 +57,7 @@ class Home extends StatelessComponent {
       EmptySpace(height: 100),
       Pricing(),
       EmptySpace(height: 80),
-      div(
-        styles: Styles(
-          display: .flex,
-          flexDirection: .column,
-          justifyContent: .center,
-          alignItems: .center,
-        ),
-        [
-          Chip(label: 'Live Price Comparison'),
-          EmptySpace(height: 22),
-          h1(
-            styles: Styles(
-              color: AppColors.darkBlue,
-              fontSize: 52.px,
-              fontWeight: .w400,
-              lineHeight: 124.percent,
-            ),
-            [.text('How It Works')],
-          ),
-          EmptySpace(height: 14),
-          h1(
-            styles: Styles(
-              color: AppColors.textGray,
-              fontSize: 18.px,
-              fontWeight: .w400,
-              lineHeight: 170.percent,
-            ),
-            [
-              .text('Three simple steps to save money on your groceries'),
-            ],
-          ),
-        ],
-      ),
+      HowItWorks(),
     ]);
   }
 

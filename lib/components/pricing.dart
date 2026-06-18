@@ -39,6 +39,10 @@ class Pricing extends StatelessComponent {
             ],
           ),
           img(
+            styles: Styles(
+              width: 70.percent,
+              margin: .only(top: .auto),
+            ),
             src: PngAssets.pricingAnalytics,
           ),
         ],
@@ -59,10 +63,6 @@ class Pricing extends StatelessComponent {
       flexDirection: .column,
       height: 100.percent,
       alignItems: .center,
-    ),
-    css('img').styles(
-      width: 70.percent,
-      margin: .only(top: .auto),
     ),
   ];
 }
