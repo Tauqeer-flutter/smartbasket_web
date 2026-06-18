@@ -6,6 +6,7 @@
 
 import 'package:jaspr/server.dart';
 import 'package:smartbasket_web/components/header.dart' as _header;
+import 'package:smartbasket_web/components/stats_row.dart' as _stats_row;
 import 'package:smartbasket_web/constants/theme.dart' as _theme;
 import 'package:smartbasket_web/pages/about.dart' as _about;
 import 'package:smartbasket_web/pages/home.dart' as _home;
@@ -37,6 +38,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._theme.styles,
     ..._app.App.styles,
     ..._header.Header.styles,
+    ..._stats_row.StatsRow.styles,
     ..._about.About.styles,
     ..._home.Home.styles,
     ..._privacy_policy.PrivacyPolicy.styles,

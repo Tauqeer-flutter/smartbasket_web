@@ -1,7 +1,10 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:smartbasket_web/constants/app_colors.dart';
-import 'package:smartbasket_web/constants/assets.dart';
+import 'package:smartbasket_web/components/stats_row.dart';
+
+import '../constants/app_colors.dart';
+import '../constants/assets.dart';
+import '../components/empty_space.dart';
 
 class Home extends StatelessComponent {
   const Home();
@@ -9,36 +12,56 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'body', [
-      div(classes: 'left', [
-        div(classes: 'ai-powered', [
-          img(src: SvgAssets.ai, classes: 'ai-image', width: 16, height: 16),
-          .text(
-            'AI-Powered Price Intelligence',
-          ),
-        ]),
-        div(
-          styles: Styles(
-            margin: .only(top: 10.px, bottom: 12.px),
-            color: AppColors.darkBlue,
-            fontSize: 64.px,
-            fontWeight: .normal,
-            lineHeight: 140.percent,
-          ),
-          [.text('Your AI Shopping Assistant for Smarter Grocery Deals')],
-        ),
-        div(styles: Styles(
-          fontSize: 16.px,
-          fontWeight: FontWeight.normal,
-          color: AppColors.textGray,
-        ),[
-              .text('Compare real-time inventory and prices across the UK\'s top retailers. Save time and money with AI-driven basket optimization.')
-        ]),
-      ]),
+      _buildLeftSide(),
+      EmptySpace(width: 24),
       div(classes: 'right', [
         img(
           src: PngAssets.homeAd,
         ),
       ]),
+    ]);
+  }
+
+  div _buildLeftSide() {
+    return div(classes: 'left', [
+      div(classes: 'ai-powered', [
+        img(src: SvgAssets.ai, classes: 'ai-image', width: 16, height: 16),
+        .text(
+          'AI-Powered Price Intelligence',
+        ),
+      ]),
+      div(
+        styles: Styles(
+          margin: .only(top: 10.px, bottom: 12.px),
+          color: AppColors.darkBlue,
+          fontSize: 64.px,
+          fontWeight: .normal,
+          lineHeight: 140.percent,
+        ),
+        [.text('Your AI Shopping Assistant for Smarter Grocery Deals')],
+      ),
+      div(
+        styles: Styles(
+          color: AppColors.textGray,
+          fontSize: 16.px,
+          fontWeight: FontWeight.normal,
+        ),
+        [
+          .text(
+            'Compare real-time inventory and prices across the UK\'s top retailers. Save time and money with AI-driven basket optimization.',
+          ),
+        ],
+      ),
+      hr(
+        styles: Styles(
+          width: 100.percent,
+          margin: .only(top: 34.px, bottom: 54.px),
+          border: .only(
+            top: BorderSide(color: AppColors.borderGrey, width: 1.px),
+          ),
+        ),
+      ),
+      StatsRow(),
     ]);
   }
 
@@ -62,7 +85,7 @@ class Home extends StatelessComponent {
     ),
     css('.left').styles(
       width: 58.percent,
-      padding: .only(left: 120.px, top: 90.px, right: 24.px),
+      padding: .only(left: 120.px, top: 90.px),
     ),
     css('.ai-powered').styles(
       maxWidth: .fitContent,
