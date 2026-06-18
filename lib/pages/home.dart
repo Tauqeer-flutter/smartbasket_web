@@ -1,7 +1,10 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:smartbasket_web/components/stats_row.dart';
+import 'package:smartbasket_web/components/feature_grid.dart';
 
+import '../components/chip.dart';
+import '../components/stats_row.dart';
+import '../components/trusted_logos.dart';
 import '../constants/app_colors.dart';
 import '../constants/assets.dart';
 import '../components/empty_space.dart';
@@ -11,25 +14,51 @@ class Home extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'body', [
-      _buildLeftSide(),
-      EmptySpace(width: 24),
-      div(classes: 'right', [
-        img(
-          src: PngAssets.homeAd,
-        ),
+    return div([
+      div(classes: 'body', [
+        _buildLeftSide(),
+        EmptySpace(width: 24),
+        div(classes: 'right', [
+          img(
+            src: PngAssets.homeAd,
+          ),
+        ]),
       ]),
+      EmptySpace(height: 123),
+      TrustedLogos(),
+      EmptySpace(height: 110),
+      div(
+        styles: Styles(
+          display: .flex,
+          flexDirection: .column,
+          justifyContent: .center,
+          alignItems: .center,
+        ),
+        [
+          Chip(label: 'Regional Intelligence', filled: true),
+          EmptySpace(height: 24),
+          h1(
+            [
+              .text('Hyper-Local Data at'),
+            ],
+          ),
+          h1([.text('Your Fingertips'),]),
+          EmptySpace(height: 18),
+          h2([.text('We track inventory across 15,000+ UK postcodes every hour. Know exactly where')]),
+          h2([.text('your favorite organic almond milk is in stock before you leave the house.')]),
+        ],
+      ),
+      EmptySpace(height: 56),
+      FeatureGrid(),
     ]);
   }
 
   div _buildLeftSide() {
     return div(classes: 'left', [
-      div(classes: 'ai-powered', [
-        img(src: SvgAssets.ai, classes: 'ai-image', width: 16, height: 16),
-        .text(
-          'AI-Powered Price Intelligence',
-        ),
-      ]),
+      Chip(
+        label: 'AI-Powered Price Intelligence',
+        image: SvgAssets.ai,
+      ),
       div(
         styles: Styles(
           margin: .only(top: 10.px, bottom: 12.px),
@@ -87,12 +116,16 @@ class Home extends StatelessComponent {
       width: 58.percent,
       padding: .only(left: 120.px, top: 90.px),
     ),
-    css('.ai-powered').styles(
-      maxWidth: .fitContent,
-      padding: .symmetric(vertical: 8.px, horizontal: 16.px),
-      border: .all(width: 1.px, color: AppColors.lightBlue1),
-      radius: .circular(100.px),
+    css('h1').styles(
+      fontSize: 52.px,
+      fontWeight: .w400,
+      lineHeight: 124.percent,
     ),
-    css('.ai-image').styles(padding: .only(right: 6.px)),
+    css('h2').styles(
+      color: AppColors.textGray,
+      fontSize: 18.px,
+      fontWeight: .w400,
+      lineHeight: 0.percent,
+    ),
   ];
 }

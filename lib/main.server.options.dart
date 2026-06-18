@@ -5,8 +5,11 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:smartbasket_web/components/feature_grid.dart' as _feature_grid;
 import 'package:smartbasket_web/components/header.dart' as _header;
 import 'package:smartbasket_web/components/stats_row.dart' as _stats_row;
+import 'package:smartbasket_web/components/trusted_logos.dart'
+    as _trusted_logos;
 import 'package:smartbasket_web/constants/theme.dart' as _theme;
 import 'package:smartbasket_web/pages/about.dart' as _about;
 import 'package:smartbasket_web/pages/home.dart' as _home;
@@ -37,8 +40,10 @@ ServerOptions get defaultServerOptions => ServerOptions(
   styles: () => [
     ..._theme.styles,
     ..._app.App.styles,
+    ..._feature_grid.FeatureGrid.styles,
     ..._header.Header.styles,
     ..._stats_row.StatsRow.styles,
+    ..._trusted_logos.TrustedLogos.styles,
     ..._about.About.styles,
     ..._home.Home.styles,
     ..._privacy_policy.PrivacyPolicy.styles,
