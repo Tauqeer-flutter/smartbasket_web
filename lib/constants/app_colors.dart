@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 
 abstract final class AppColors {
   static final white = Color('#FFFFFF');
+  static final blue = Color('#1464C2');
   static final darkBlue = Color('#0A2147');
   static final primaryBlue = Color('#1575E5');
   static final lightBlue = Color('#E8F0FE');

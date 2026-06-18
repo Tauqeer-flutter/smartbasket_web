@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:smartbasket_web/components/feature_grid.dart';
+import 'package:smartbasket_web/components/pricing.dart';
 
 import '../components/chip.dart';
 import '../components/stats_row.dart';
@@ -42,7 +43,9 @@ class Home extends StatelessComponent {
               .text('Hyper-Local Data at'),
             ],
           ),
-          h1([.text('Your Fingertips'),]),
+          h1([
+            .text('Your Fingertips'),
+          ]),
           EmptySpace(height: 18),
           h2([.text('We track inventory across 15,000+ UK postcodes every hour. Know exactly where')]),
           h2([.text('your favorite organic almond milk is in stock before you leave the house.')]),
@@ -50,6 +53,42 @@ class Home extends StatelessComponent {
       ),
       EmptySpace(height: 56),
       FeatureGrid(),
+      EmptySpace(height: 100),
+      Pricing(),
+      EmptySpace(height: 80),
+      div(
+        styles: Styles(
+          display: .flex,
+          flexDirection: .column,
+          justifyContent: .center,
+          alignItems: .center,
+        ),
+        [
+          Chip(label: 'Live Price Comparison'),
+          EmptySpace(height: 22),
+          h1(
+            styles: Styles(
+              color: AppColors.darkBlue,
+              fontSize: 52.px,
+              fontWeight: .w400,
+              lineHeight: 124.percent,
+            ),
+            [.text('How It Works')],
+          ),
+          EmptySpace(height: 14),
+          h1(
+            styles: Styles(
+              color: AppColors.textGray,
+              fontSize: 18.px,
+              fontWeight: .w400,
+              lineHeight: 170.percent,
+            ),
+            [
+              .text('Three simple steps to save money on your groceries'),
+            ],
+          ),
+        ],
+      ),
     ]);
   }
 

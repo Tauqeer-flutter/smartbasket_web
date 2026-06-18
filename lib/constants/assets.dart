@@ -18,4 +18,5 @@ abstract final class PngAssets {
   static const String categoryBasedSearch = '$_assets/categories.png';
   static const String smartRecommendations = '$_assets/smart_recommendations.png';
   static const String nearestStores = '$_assets/nearest_store.png';
+  static const String pricingAnalytics = '$_assets/pricing_analytics.png';
 }

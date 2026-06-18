@@ -8,6 +8,7 @@ class Chip extends StatelessComponent {
   final String? image;
   final bool filled;
   final Color? fillColor;
+  final Color? textColor;
 
   const Chip({
     super.key,
@@ -15,15 +16,18 @@ class Chip extends StatelessComponent {
     this.image,
     this.filled = false,
     this.fillColor,
+    this.textColor,
   });
+
   @override
   Component build(BuildContext context) {
     return div(
       styles: Styles(
         maxWidth: .fitContent,
         padding: .symmetric(vertical: 8.px, horizontal: 16.px),
-        border: .all(width: 1.px, color: AppColors.lightBlue1),
+        border: .all(width: 1.px, color: fillColor ?? AppColors.lightBlue1),
         radius: .circular(100.px),
+        color: textColor,
         backgroundColor: filled ? fillColor ?? AppColors.primaryBlue.withOpacity(0.1) : null,
       ),
       [
