@@ -11,40 +11,31 @@ class StatsRow extends StatelessComponent {
     return div(
       classes: 'stats-items',
       [
-        _buildStatItem(
-          name: 'Stores Connected',
-          value: '5+'
-        ),
-        _buildStatItem(
-            name: 'Products Tracked',
-            value: '50K+'
-        ),
-        _buildStatItem(
-            name: 'Avg. Savings',
-            value: '35%'
-        ),
+        _buildStatItem(name: 'Stores Connected', value: '5+'),
+        _buildStatItem(name: 'Products Tracked', value: '50K+'),
+        _buildStatItem(name: 'Avg. Savings', value: '35%'),
       ],
     );
   }
 
   div _buildStatItem({required String name, required String value}) {
     return div(
-        classes: 'stats-item',
-        [
-          div(
-            classes: 'stats-value',
-            [
-              .text(value),
-            ],
-          ),
-          div(
-            classes: 'stats-name',
-            [
-              .text(name),
-            ],
-          ),
-        ],
-      );
+      classes: 'stats-item',
+      [
+        div(
+          classes: 'stats-value',
+          [
+            .text(value),
+          ],
+        ),
+        div(
+          classes: 'stats-name',
+          [
+            .text(name),
+          ],
+        ),
+      ],
+    );
   }
 
   @css
