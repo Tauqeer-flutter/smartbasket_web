@@ -9,7 +9,7 @@ import 'empty_space.dart';
 class HowItWorks extends StatelessComponent {
   @override
   Component build(BuildContext context) {
-    return div(classes: 'how-it-works', [
+    return div(id: 'howItWorks', classes: 'how-it-works', [
       Chip(label: 'Live Price Comparison'),
       EmptySpace(height: 14),
       h1(

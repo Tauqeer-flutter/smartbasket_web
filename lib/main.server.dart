@@ -44,6 +44,13 @@ void main() {
       ),
     ],
     head: [
+      link(
+        href: 'https://fonts.googleapis'
+            '.com/css?family=Material+Icons|Material+Icons+Outlined'
+            '|Material+Icons+Two+Tone|Material+Icons+Round|Material+'
+            'Icons+Sharp',
+        rel: 'stylesheet',
+      ),
       // The generated flutter manifest and bootstrap script.
       link(rel: 'manifest', href: 'manifest.json'),
       script(src: "flutter_bootstrap.js", async: true),

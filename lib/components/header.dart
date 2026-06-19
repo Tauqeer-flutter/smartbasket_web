@@ -18,9 +18,9 @@ class Header extends StatelessComponent {
           ),
         ]),
         nav([
-          a(href: '/about', [.text('About')]),
-          a(href: '/how-it-works', [.text('How It Works')]),
-          a(href: '/pricing', [.text('Pricing')]),
+          a(href: '/', [.text('About')]),
+          a(href: '/#howItWorks', [.text('How It Works')]),
+          a(href: '/#pricing', [.text('Pricing')]),
         ]),
         a(classes: 'btn-get-started', href: '#', [
           .text('Get Started'),

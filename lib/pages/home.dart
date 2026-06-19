@@ -4,6 +4,7 @@ import 'package:smartbasket_web/components/feature_grid.dart';
 import 'package:smartbasket_web/components/pricing.dart';
 
 import '../components/chip.dart';
+import '../components/footer.dart';
 import '../components/how_it_works.dart';
 import '../components/stats_row.dart';
 import '../components/trusted_logos.dart';
@@ -58,7 +59,6 @@ class Home extends StatelessComponent {
       Pricing(),
       EmptySpace(height: 80),
       HowItWorks(),
-      EmptySpace(height: 100),
     ]);
   }
 

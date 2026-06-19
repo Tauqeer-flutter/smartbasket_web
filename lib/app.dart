@@ -4,6 +4,8 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'package:smartbasket_web/pages/privacy_policy.dart';
 import 'package:smartbasket_web/pages/terms_conditions.dart';
 
+import 'components/empty_space.dart';
+import 'components/footer.dart';
 import 'components/header.dart';
 import 'pages/about.dart';
 import 'pages/home.dart';
@@ -30,7 +32,7 @@ class App extends StatelessComponent {
             builder: (context, state) =>  Home(),
           ),
           Route(
-            path: '/about',
+            path: '/',
             title: 'About',
             builder: (context, state) => const About(),
           ),
@@ -46,6 +48,8 @@ class App extends StatelessComponent {
           ),
         ],
       ),
+      EmptySpace(height: 100),
+      Footer(),
     ]);
   }
 

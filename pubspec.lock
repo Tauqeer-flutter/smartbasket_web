@@ -315,6 +315,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.11"
+  jaspr_material:
+    dependency: "direct main"
+    description:
+      name: jaspr_material
+      sha256: f211581b0eb5b9b8961f6ee45e335bed76cfa10a54ca1b05e0b0d072977c4d91
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
   jaspr_router:
     dependency: "direct main"
     description:

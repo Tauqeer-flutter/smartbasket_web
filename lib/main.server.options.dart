@@ -6,6 +6,7 @@
 
 import 'package:jaspr/server.dart';
 import 'package:smartbasket_web/components/feature_grid.dart' as _feature_grid;
+import 'package:smartbasket_web/components/footer.dart' as _footer;
 import 'package:smartbasket_web/components/header.dart' as _header;
 import 'package:smartbasket_web/components/how_it_works.dart' as _how_it_works;
 import 'package:smartbasket_web/components/pricing.dart' as _pricing;
@@ -43,6 +44,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._theme.styles,
     ..._app.App.styles,
     ..._feature_grid.FeatureGrid.styles,
+    ..._footer.Footer.styles,
     ..._header.Header.styles,
     ..._how_it_works.HowItWorks.styles,
     ..._pricing.Pricing.styles,

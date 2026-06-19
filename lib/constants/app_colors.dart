@@ -8,7 +8,9 @@ abstract final class AppColors {
   static final lightBlue = Color('#E8F0FE');
   static final lightBlue1 = Color('#D1E3FF');
   static final textGray = Color('#717680');
+  static final textGray1 = Color('#DDDDDD');
   static final borderGrey = Color('#E9EAEB');
   static final backgroundLight = Color('#F8FAFC');
   static final accentBlue = Color('#EBF1FC');
+  static final orange = Color('#FF9116');
 }
