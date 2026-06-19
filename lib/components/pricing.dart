@@ -59,9 +59,9 @@ class Pricing extends StatelessComponent {
     ),
     css('.pricing-body').styles(
       display: .flex,
+      height: 100.percent,
       padding: .only(left: 100.px, right: 100.px),
       flexDirection: .column,
-      height: 100.percent,
       alignItems: .center,
     ),
   ];

@@ -100,7 +100,6 @@ class FeatureGrid extends StatelessComponent {
       radius: .circular(16.px),
       flexDirection: .column,
       alignItems: .center,
-      // gap: .all(20.px),
     ),
     css('.inner-card').styles(
       display: .flex,

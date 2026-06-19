@@ -58,6 +58,7 @@ class Home extends StatelessComponent {
       Pricing(),
       EmptySpace(height: 80),
       HowItWorks(),
+      EmptySpace(height: 100),
     ]);
   }
 
