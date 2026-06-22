@@ -4,13 +4,12 @@ import 'package:smartbasket_web/components/feature_grid.dart';
 import 'package:smartbasket_web/components/pricing.dart';
 
 import '../components/chip.dart';
-import '../components/footer.dart';
+import '../components/empty_space.dart';
 import '../components/how_it_works.dart';
 import '../components/stats_row.dart';
 import '../components/trusted_logos.dart';
 import '../constants/app_colors.dart';
 import '../constants/assets.dart';
-import '../components/empty_space.dart';
 
 class Home extends StatelessComponent {
   const Home();
@@ -69,21 +68,11 @@ class Home extends StatelessComponent {
         image: SvgAssets.ai,
       ),
       div(
-        styles: Styles(
-          margin: .only(top: 10.px, bottom: 12.px),
-          color: AppColors.darkBlue,
-          fontSize: 64.px,
-          fontWeight: .normal,
-          lineHeight: 140.percent,
-        ),
+        classes: 'hero-title',
         [.text('Your AI Shopping Assistant for Smarter Grocery Deals')],
       ),
       div(
-        styles: Styles(
-          color: AppColors.textGray,
-          fontSize: 16.px,
-          fontWeight: FontWeight.normal,
-        ),
+        classes: 'hero-subtitle',
         [
           .text(
             'Compare real-time inventory and prices across the UK\'s top retailers. Save time and money with AI-driven basket optimization.',
@@ -136,5 +125,46 @@ class Home extends StatelessComponent {
       fontWeight: .w400,
       lineHeight: 0.percent,
     ),
+    css('.hero-title').styles(
+      margin: .only(top: 10.px, bottom: 12.px),
+      color: AppColors.darkBlue,
+      fontSize: 64.px,
+      fontWeight: .normal,
+      lineHeight: 140.percent,
+    ),
+    css('.hero-subtitle').styles(
+      color: AppColors.textGray,
+      fontSize: 16.px,
+      fontWeight: FontWeight.normal,
+    ),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.body').styles(
+        flexDirection: .column,
+      ),
+      css('.left').styles(
+        width: 100.percent,
+        padding: .symmetric(horizontal: 20.px, vertical: 40.px),
+      ),
+      css('.right').styles(
+        width: 100.percent,
+        padding: .symmetric(horizontal: 20.px, vertical: 20.px),
+      ),
+      css('.hero-title').styles(
+        textAlign: .center,
+        fontSize: 32.px,
+      ),
+      css('.hero-subtitle').styles(
+        textAlign: .center,
+      ),
+      css('h1').styles(
+        textAlign: .center,
+        fontSize: 32.px,
+      ),
+      css('h2').styles(
+        textAlign: .center,
+        fontSize: 16.px,
+        lineHeight: 140.percent,
+      ),
+    ]),
   ];
 }

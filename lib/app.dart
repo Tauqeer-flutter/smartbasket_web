@@ -29,7 +29,7 @@ class App extends StatelessComponent {
           Route(
             path: '/',
             title: 'Home',
-            builder: (context, state) =>  Home(),
+            builder: (context, state) => Home(),
           ),
           Route(
             path: '/',
@@ -39,12 +39,12 @@ class App extends StatelessComponent {
           Route(
             path: '/terms-conditions',
             title: 'Terms & Conditions',
-            builder: (context, state) =>  TermsConditions(),
+            builder: (context, state) => TermsConditions(),
           ),
           Route(
             path: '/privacy-policy',
             title: 'Privacy Policy',
-            builder: (context, state) =>  PrivacyPolicy(),
+            builder: (context, state) => PrivacyPolicy(),
           ),
         ],
       ),
@@ -73,6 +73,11 @@ class App extends StatelessComponent {
         justifyContent: .center,
         alignItems: .center,
         flex: Flex(grow: 1),
+      ),
+    ]),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.main').styles(
+        height: .auto,
       ),
     ]),
   ];

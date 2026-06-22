@@ -63,5 +63,23 @@ class StatsRow extends StatelessComponent {
       fontSize: 18.px,
       fontWeight: .w400,
     ),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.stats-items').styles(
+        width: 100.percent,
+        flexWrap: .wrap,
+        justifyContent: .center,
+        gap: Gap.all(20.px),
+      ),
+      css('.stats-item').styles(
+        width: .auto,
+        minWidth: 100.px,
+      ),
+      css('.stats-value').styles(
+        fontSize: 24.px,
+      ),
+      css('.stats-name').styles(
+        fontSize: 14.px,
+      ),
+    ]),
   ];
 }

@@ -22,14 +22,7 @@ class Footer extends StatelessComponent {
         Chip(label: 'Premium Subscription', textColor: AppColors.white),
         EmptySpace(height: 14),
         h1(
-          styles: Styles(
-            width: 70.percent,
-            color: AppColors.white.withOpacity(0.7),
-            textAlign: .center,
-            fontSize: 18.px,
-            fontWeight: .w400,
-            lineHeight: 170.percent,
-          ),
+          classes: 'footer-subtitle',
           [
             .text(
               'Transparent data that shows you exactly where the margins are. No more guessing which shop is cheaper for your specific list.',
@@ -41,12 +34,7 @@ class Footer extends StatelessComponent {
           classes: 'footer-subscription',
           [
             h1(
-              styles: Styles(
-                color: AppColors.white,
-                fontSize: 18.px,
-                fontWeight: .w500,
-                lineHeight: 150.percent,
-              ),
+              classes: 'subscription-name',
               [.text('EcoBasket')],
             ),
             EmptySpace(height: 4),
@@ -54,40 +42,22 @@ class Footer extends StatelessComponent {
               classes: 'footer-price',
               [
                 h1(
-                  styles: Styles(
-                    color: AppColors.white,
-                    fontSize: 36.px,
-                    fontWeight: .w700,
-                  ),
+                  classes: 'price-value',
                   [.text('£4.99')],
                 ),
                 h1(
-                  styles: Styles(
-                    margin: .only(left: 5.px),
-                    color: AppColors.white,
-                    fontSize: 18.px,
-                    fontWeight: .w400,
-                  ),
+                  classes: 'price-unit',
                   [.text('/ per month')],
                 ),
                 h1(
-                  styles: Styles(
-                    margin: .only(left: .auto),
-                    color: AppColors.white,
-                    fontSize: 25.px,
-                    fontWeight: .w700,
-                  ),
+                  classes: 'trial-text',
                   [.text('7 Days Free Trial')],
                 ),
               ],
             ),
             EmptySpace(height: 4),
             h1(
-              styles: Styles(
-                color: AppColors.textGray1,
-                fontSize: 18.px,
-                fontWeight: .w400,
-              ),
+              classes: 'subscription-desc',
               [.text('Unlock the full power of AI-driven savings with our monthly plan.')],
             ),
             EmptySpace(height: 32),
@@ -104,6 +74,7 @@ class Footer extends StatelessComponent {
             ),
             EmptySpace(height: 32),
             button(
+              classes: 'subscription-btn',
               [
                 .text('Start Your Subscription Now'),
                 Icon(
@@ -115,14 +86,10 @@ class Footer extends StatelessComponent {
           ],
         ),
         div(
-          styles: Styles(
-            width: 100.percent,
-          ),
+          classes: 'divider-container',
           [
             hr(
-              styles: Styles(
-                margin: .symmetric(horizontal: 100.px,vertical: 50.px),
-              ),
+              classes: 'footer-divider',
             ),
           ],
         ),
@@ -207,11 +174,7 @@ class Footer extends StatelessComponent {
     return div(classes: 'subscription-feature', [
       Icon(Icons.checkCircle, color: AppColors.orange),
       h1(
-        styles: Styles(
-          color: AppColors.white,
-          fontSize: 16.px,
-          fontWeight: .w400,
-        ),
+        classes: 'feature-text',
         [.text(title)],
       ),
     ]);
@@ -221,7 +184,7 @@ class Footer extends StatelessComponent {
   static List<StyleRule> get styles => [
     css('.footer').styles(
       display: .flex,
-      width: 100.vw,
+      width: 100.percent,
       flexDirection: .column,
       alignItems: .center,
       backgroundColor: AppColors.primaryBlue,
@@ -291,5 +254,96 @@ class Footer extends StatelessComponent {
       fontStyle: .normal,
       textDecoration: .none,
     ),
+    css('.footer-subtitle').styles(
+      width: 70.percent,
+      color: AppColors.white.withOpacity(0.7),
+      textAlign: .center,
+      fontSize: 18.px,
+      fontWeight: .w400,
+      lineHeight: 170.percent,
+    ),
+    css('.subscription-name').styles(
+      color: AppColors.white,
+      fontSize: 18.px,
+      fontWeight: .w500,
+      lineHeight: 150.percent,
+    ),
+    css('.price-value').styles(
+      color: AppColors.white,
+      fontSize: 36.px,
+      fontWeight: .w700,
+    ),
+    css('.price-unit').styles(
+      margin: .only(left: 5.px),
+      color: AppColors.white,
+      fontSize: 18.px,
+      fontWeight: .w400,
+    ),
+    css('.trial-text').styles(
+      margin: .only(left: .auto),
+      color: AppColors.white,
+      fontSize: 25.px,
+      fontWeight: .w700,
+    ),
+    css('.subscription-desc').styles(
+      color: AppColors.textGray1,
+      fontSize: 18.px,
+      fontWeight: .w400,
+    ),
+    css('.feature-text').styles(
+      color: AppColors.white,
+      fontSize: 16.px,
+      fontWeight: .w400,
+    ),
+    css('.divider-container').styles(
+      width: 100.percent,
+    ),
+    css('.footer-divider').styles(
+      margin: .symmetric(horizontal: 100.px, vertical: 50.px),
+    ),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.footer-body').styles(
+        margin: .only(left: 20.px, right: 20.px, top: 40.px),
+      ),
+      css('.footer-subtitle').styles(
+        width: 100.percent,
+      ),
+      css('.footer-subscription').styles(
+        width: 100.percent,
+        padding: .all(24.px),
+        boxSizing: .borderBox,
+      ),
+      css('.footer-price').styles(
+        flexDirection: .column,
+        gap: Gap.all(10.px),
+      ),
+      css('.trial-text').styles(
+        margin: .zero,
+        textAlign: .center,
+      ),
+      css('.footer-subscription-features').styles(
+        gridTemplate: GridTemplate(
+          columns: GridTracks([GridTrack(TrackSize.fr(1))]),
+        ),
+      ),
+      css('.footer-navigation').styles(
+        flexDirection: .column,
+        padding: .symmetric(horizontal: 20.px, vertical: 40.px),
+        gap: .row(20.px),
+      ),
+      css('.navigation-buttons').styles(
+        margin: .zero,
+        display: .flex,
+        flexWrap: .wrap,
+        justifyContent: .center,
+        gap: .all(10.px),
+      ),
+      css('.navigation-buttons a').styles(
+        margin: .zero,
+      ),
+      css('.footer-divider').styles(
+        margin: .symmetric(horizontal: 20.px, vertical: 20.px),
+      ),
+    ]),
   ];
 }

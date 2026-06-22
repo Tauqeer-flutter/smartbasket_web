@@ -44,32 +44,16 @@ class FeatureGrid extends StatelessComponent {
       div(classes: 'inner-card', [
         img(
           src: image,
-          styles: Styles(
-            height: 260.px,
-          ),
+          classes: 'card-img',
         ),
       ]),
       EmptySpace(height: 20),
       h1(
-        styles: Styles(
-          color: AppColors.darkBlue,
-          fontSize: 24.px,
-          fontWeight: .w400,
-          lineHeight: 100.percent,
-        ),
+        classes: 'card-title',
         [.text(title)],
       ),
       // EmptySpace(height: 8),
-      h2(
-        styles: Styles(
-          color: AppColors.textGray,
-          textAlign: .center,
-          fontSize: 18.px,
-          fontWeight: .w400,
-          lineHeight: 140.percent,
-        ),
-        [.text(description)]
-      )
+      h2(classes: 'card-description', [.text(description)]),
     ]);
   }
 
@@ -110,5 +94,43 @@ class FeatureGrid extends StatelessComponent {
       alignSelf: .stretch,
       backgroundColor: AppColors.accentBlue,
     ),
+    css('.card-img').styles(
+      height: 260.px,
+    ),
+    css('.card-title').styles(
+      color: AppColors.darkBlue,
+      fontSize: 24.px,
+      fontWeight: .w400,
+      lineHeight: 100.percent,
+      textAlign: .center,
+    ),
+    css('.card-description').styles(
+      color: AppColors.textGray,
+      textAlign: .center,
+      fontSize: 18.px,
+      fontWeight: .w400,
+      lineHeight: 140.percent,
+    ),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.data-grid').styles(
+        width: 90.percent,
+        gridTemplate: GridTemplate(
+          columns: GridTracks([GridTrack(TrackSize.fr(1))]),
+        ),
+      ),
+      css('.inner-card').styles(
+        padding: .symmetric(horizontal: 20.px, vertical: 20.px),
+      ),
+      css('.card-title').styles(
+        fontSize: 20.px,
+      ),
+      css('.card-description').styles(
+        fontSize: 16.px,
+      ),
+      css('.card-img').styles(
+        height: .auto,
+        maxWidth: 100.percent,
+      ),
+    ]),
   ];
 }

@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+
 import '../constants/app_colors.dart';
 
 class PrivacyPolicy extends StatelessComponent {
@@ -20,11 +21,11 @@ class PrivacyPolicy extends StatelessComponent {
           _buildHeading('Privacy & Policy', 'heading-xl'),
           _buildParagraph(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-                'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
-                'exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure '
-                'dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
-                'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt '
-                'mollit anim id est laborum.',
+            'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
+            'exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure '
+            'dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+            'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt '
+            'mollit anim id est laborum.',
           ),
         ]),
 
@@ -45,7 +46,7 @@ class PrivacyPolicy extends StatelessComponent {
       _buildHeading(title, 'heading-lg'),
       _buildParagraph(
         'By accessing or using this application, you agree to be bound by these privacy and Conditions. '
-            'If you do not agree with any part of these privacy, please discontinue use of the application.',
+        'If you do not agree with any part of these privacy, please discontinue use of the application.',
       ),
     ]);
   }
@@ -84,7 +85,7 @@ class PrivacyPolicy extends StatelessComponent {
       fontSize: 64.px,
       fontWeight: FontWeight.w400,
       lineHeight: 1.24.em,
-      backgroundColor:AppColors.accentBlue,
+      backgroundColor: AppColors.accentBlue,
     ),
 
     // ── Body wrapper ──────────────────────────────────────────────
@@ -144,24 +145,19 @@ class PrivacyPolicy extends StatelessComponent {
       lineHeight: 1.70.em,
     ),
 
-    // Responsive: Reduce padding on smaller screens
-    css('@media (max-width: 1024px)', [
-      css('.privacy-content').styles(
-        padding: Padding.symmetric(horizontal: 40.px, vertical: 40.px),
-      ),
-    ]),
-
-    css('@media (max-width: 600px)', [
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
       css('.privacy-content').styles(
         padding: Padding.symmetric(horizontal: 20.px, vertical: 30.px),
         gap: Gap.all(40.px),
       ),
-      css('.privacy-banner, .heading-xl').styles(
+      css('.privacy-banner').styles(
         height: 200.px,
-        fontSize: 40.px,
+      ),
+      css('.heading-xl').styles(
+        fontSize: 32.px,
       ),
       css('.heading-lg').styles(
-        fontSize: 32.px,
+        fontSize: 24.px,
       ),
     ]),
   ];

@@ -13,22 +13,12 @@ class HowItWorks extends StatelessComponent {
       Chip(label: 'Live Price Comparison'),
       EmptySpace(height: 14),
       h1(
-        styles: Styles(
-          color: AppColors.darkBlue,
-          fontSize: 52.px,
-          fontWeight: .w400,
-          lineHeight: 124.percent,
-        ),
+        classes: 'how-it-works-title',
         [.text('How It Works')],
       ),
       EmptySpace(height: 14),
       h1(
-        styles: Styles(
-          color: AppColors.textGray,
-          fontSize: 18.px,
-          fontWeight: .w400,
-          lineHeight: 170.percent,
-        ),
+        classes: 'how-it-works-subtitle',
         [
           .text(
             'Three simple steps to save money on your groceries',
@@ -39,7 +29,7 @@ class HowItWorks extends StatelessComponent {
       div(
         classes: 'how-it-works-grid',
         [
-          img(src: PngAssets.howItWorksMobile, width: 580),
+          img(src: PngAssets.howItWorksMobile, classes: 'how-it-works-main-img'),
           div(classes: 'how-it-works-column', [
             _buildHowItWorksItem(
               image: SvgAssets.flower,
@@ -70,37 +60,20 @@ class HowItWorks extends StatelessComponent {
   Component _buildHowItWorksItem({required String image, required String title, required String description}) {
     return div(classes: 'how-it-works-item', [
       div(
-        styles: Styles(
-          display: .flex,
-          flexDirection: .row,
-          alignItems: .start,
-        ),
+        classes: 'how-it-works-item-inner',
         [
           img(src: image),
           EmptySpace(width: 32),
           div(
-            styles: Styles(
-              display: .flex,
-              flexDirection: .column,
-            ),
+            classes: 'how-it-works-item-text',
             [
               h1(
-                styles: Styles(
-                  color: AppColors.darkBlue,
-                  fontSize: 32.px,
-                  fontWeight: .w400,
-                  lineHeight: 110.percent,
-                ),
+                classes: 'item-title',
                 [.text(title)],
               ),
               EmptySpace(height: 1),
               h1(
-                styles: Styles(
-                  color: AppColors.textGray,
-                  fontSize: 18.px,
-                  fontWeight: .w400,
-                  lineHeight: 170.percent,
-                ),
+                classes: 'item-description',
                 [.text(description)],
               ),
             ],
@@ -146,5 +119,75 @@ class HowItWorks extends StatelessComponent {
       alignItems: .start,
       alignSelf: .stretch,
     ),
+    css('.how-it-works-title').styles(
+      color: AppColors.darkBlue,
+      fontSize: 52.px,
+      fontWeight: .w400,
+      lineHeight: 124.percent,
+    ),
+    css('.how-it-works-subtitle').styles(
+      color: AppColors.textGray,
+      fontSize: 18.px,
+      fontWeight: .w400,
+      lineHeight: 170.percent,
+      textAlign: .center,
+    ),
+    css('.how-it-works-main-img').styles(
+      width: 580.px,
+    ),
+    css('.how-it-works-item-inner').styles(
+      display: .flex,
+      flexDirection: .row,
+      alignItems: .start,
+    ),
+    css('.how-it-works-item-text').styles(
+      display: .flex,
+      flexDirection: .column,
+    ),
+    css('.item-title').styles(
+      color: AppColors.darkBlue,
+      fontSize: 32.px,
+      fontWeight: .w400,
+      lineHeight: 110.percent,
+    ),
+    css('.item-description').styles(
+      color: AppColors.textGray,
+      fontSize: 18.px,
+      fontWeight: .w400,
+      lineHeight: 170.percent,
+    ),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('.how-it-works-grid').styles(
+        width: 90.percent,
+        gridTemplate: GridTemplate(
+          columns: GridTracks([GridTrack(TrackSize.fr(1))]),
+        ),
+      ),
+      css('.how-it-works-main-img').styles(
+        width: 100.percent,
+        height: .auto,
+      ),
+      css('.how-it-works-title').styles(
+        fontSize: 32.px,
+        textAlign: .center,
+      ),
+      css('.how-it-works-subtitle').styles(
+        fontSize: 16.px,
+        textAlign: .center,
+      ),
+      css('.how-it-works-item-inner').styles(
+        flexDirection: .column,
+        alignItems: .center,
+      ),
+      css('.how-it-works-item-text').styles(
+        textAlign: .center,
+      ),
+      css('.item-title').styles(
+        fontSize: 24.px,
+      ),
+      css('.item-description').styles(
+        fontSize: 16.px,
+      ),
+    ]),
   ];
 }

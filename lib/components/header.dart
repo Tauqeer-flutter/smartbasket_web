@@ -89,5 +89,21 @@ class Header extends StatelessComponent {
         ),
       ]),
     ]),
+    css.media(MediaQuery.screen(maxWidth: 768.px), [
+      css('header').styles(
+        padding: .symmetric(horizontal: 20.px, vertical: 10.px),
+      ),
+      css('.header-inner').styles(
+        flexDirection: .column,
+        gap: Gap.all(16.px),
+      ),
+      css('nav').styles(
+        gap: Gap.all(16.px),
+      ),
+      css('.btn-get-started').styles(
+        width: 100.percent,
+        justifyContent: .center,
+      ),
+    ]),
   ];
 }
