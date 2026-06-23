@@ -8,7 +8,7 @@ import 'package:smartbasket_web/constants/assets.dart';
 class Pricing extends StatelessComponent {
   @override
   Component build(BuildContext context) {
-    return div(id: 'pricing', classes: 'pricing', [
+    return div(classes: 'pricing', [
       div(
         classes: 'pricing-body',
         [

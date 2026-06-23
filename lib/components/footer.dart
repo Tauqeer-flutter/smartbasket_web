@@ -1,171 +1,188 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_material/jaspr_material.dart';
-import 'package:smartbasket_web/constants/assets.dart';
 
 import '../constants/app_colors.dart';
+import '../constants/assets.dart';
 import 'chip.dart';
 import 'empty_space.dart';
 
 class Footer extends StatelessComponent {
+  bool shouldShowPricing(BuildContext context) {
+    final location = context.binding.currentUrl;
+    if (location.contains('/terms-conditions') || location.contains('/privacy-policy')) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   Component build(BuildContext context) {
+    final showPricing = shouldShowPricing(context);
     return div(classes: 'footer', [
-      _buildBody(),
+      _buildBody(showPricing),
     ]);
   }
 
-  div _buildBody() {
+  div _buildBody(bool showPricing) {
     return div(
+      id: 'pricing',
       classes: 'footer-body',
       [
-        Chip(label: 'Premium Subscription', textColor: AppColors.white),
-        EmptySpace(height: 14),
-        h1(
-          classes: 'footer-subtitle',
-          [
-            .text(
-              'Transparent data that shows you exactly where the margins are. No more guessing which shop is cheaper for your specific list.',
-            ),
-          ],
-        ),
-        EmptySpace(height: 44),
-        div(
-          classes: 'footer-subscription',
-          [
-            h1(
-              classes: 'subscription-name',
-              [.text('EcoBasket')],
-            ),
-            EmptySpace(height: 4),
-            div(
-              classes: 'footer-price',
-              [
-                h1(
-                  classes: 'price-value',
-                  [.text('£4.99')],
-                ),
-                h1(
-                  classes: 'price-unit',
-                  [.text('/ per month')],
-                ),
-                h1(
-                  classes: 'trial-text',
-                  [.text('7 Days Free Trial')],
-                ),
-              ],
-            ),
-            EmptySpace(height: 4),
-            h1(
-              classes: 'subscription-desc',
-              [.text('Unlock the full power of AI-driven savings with our monthly plan.')],
-            ),
-            EmptySpace(height: 32),
-            div(
-              classes: 'footer-subscription-features',
-              [
-                _buildSubscriptionFeature('Unlimited basket comparisons'),
-                _buildSubscriptionFeature('Priority regional data'),
-                _buildSubscriptionFeature('Real-time stock alerts'),
-                _buildSubscriptionFeature('Exclusive partner deals'),
-                _buildSubscriptionFeature('Ad-free experience'),
-                _buildSubscriptionFeature('Find nearest stores with best prices'),
-              ],
-            ),
-            EmptySpace(height: 32),
-            button(
-              classes: 'subscription-btn',
-              [
-                .text('Start Your Subscription Now'),
-                Icon(
-                  Icons.arrowRightAlt,
-                  color: AppColors.white,
-                ),
-              ],
-            ),
-          ],
-        ),
-        div(
-          classes: 'divider-container',
-          [
-            hr(
-              classes: 'footer-divider',
-            ),
-          ],
-        ),
-        footer(classes: 'footer-navigation', [
-          a(href: '/', [
-            img(
-              src: SvgAssets.logoWhite,
-              height: 40,
-            ),
-          ]),
-          div(
-            classes: 'navigation-buttons',
+        if (showPricing) ...{
+          EmptySpace(height: 80),
+          Chip(label: 'Premium Subscription', textColor: AppColors.white),
+          EmptySpace(height: 14),
+          h1(
+            classes: 'footer-subtitle',
             [
-              a(href: '/', [
-                .text('About'),
-              ]),
-              a(href: '/#howItWorks', [
-                .text('How It Works'),
-              ]),
-              a(href: '/#pricing', [
-                .text('Pricing'),
-              ]),
-              a(href: '/terms-conditions', [
-                .text('Terms & Conditions'),
-              ]),
-              a(href: '/privacy-policy', [
-                .text('Privacy Policy'),
-              ]),
-            ],
-          ),
-          div(
-            classes: 'navigation-buttons',
-            [
-              img(
-                src: SvgAssets.playStore,
-                width: 32,
-                height: 32,
-                styles: Styles(
-                  margin: .symmetric(horizontal: 14.px),
-                ),
-              ),
-              img(
-                src: SvgAssets.appStore,
-                width: 32,
-                height: 32,
-                styles: Styles(
-                  margin: .symmetric(horizontal: 14.px),
-                ),
-              ),
-              img(
-                src: SvgAssets.twitter,
-                width: 32,
-                height: 32,
-                styles: Styles(
-                  margin: .symmetric(horizontal: 14.px),
-                ),
-              ),
-              img(
-                src: SvgAssets.linkedin,
-                width: 32,
-                height: 32,
-                styles: Styles(
-                  margin: .symmetric(horizontal: 14.px),
-                ),
-              ),
-              img(
-                src: SvgAssets.facebook,
-                width: 32,
-                height: 32,
-                styles: Styles(
-                  margin: .symmetric(horizontal: 14.px),
-                ),
+              .text(
+                'Transparent data that shows you exactly where the margins are. No more guessing which shop is cheaper for your specific list.',
               ),
             ],
           ),
-        ]),
+          EmptySpace(height: 44),
+          div(
+            classes: 'footer-subscription',
+            [
+              h1(
+                classes: 'subscription-name',
+                [.text('EcoBasket')],
+              ),
+              EmptySpace(height: 4),
+              div(
+                classes: 'footer-price',
+                [
+                  h1(
+                    classes: 'price-value',
+                    [.text('£4.99')],
+                  ),
+                  h1(
+                    classes: 'price-unit',
+                    [.text('/ per month')],
+                  ),
+                  h1(
+                    classes: 'trial-text',
+                    [.text('7 Days Free Trial')],
+                  ),
+                ],
+              ),
+              EmptySpace(height: 4),
+              h1(
+                classes: 'subscription-desc',
+                [.text('Unlock the full power of AI-driven savings with our monthly plan.')],
+              ),
+              EmptySpace(height: 32),
+              div(
+                classes: 'footer-subscription-features',
+                [
+                  _buildSubscriptionFeature('Unlimited basket comparisons'),
+                  _buildSubscriptionFeature('Priority regional data'),
+                  _buildSubscriptionFeature('Real-time stock alerts'),
+                  _buildSubscriptionFeature('Exclusive partner deals'),
+                  _buildSubscriptionFeature('Ad-free experience'),
+                  _buildSubscriptionFeature('Find nearest stores with best prices'),
+                ],
+              ),
+              EmptySpace(height: 32),
+              button(
+                classes: 'subscription-btn',
+                [
+                  .text('Start Your Subscription Now'),
+                  Icon(
+                    Icons.arrowRightAlt,
+                    color: AppColors.white,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          EmptySpace(height: 50),
+          div(
+            classes: 'divider-container',
+            [
+              hr(
+                classes: 'footer-divider',
+              ),
+            ],
+          ),
+        },
+        footer(
+          classes: 'footer-navigation',
+          [
+            a(href: '/', [
+              img(
+                src: SvgAssets.logoWhite,
+                height: 40,
+              ),
+            ]),
+            div(
+              classes: 'navigation-buttons',
+              [
+                a(href: '/', [
+                  .text('About'),
+                ]),
+                a(href: '/#howItWorks', [
+                  .text('How It Works'),
+                ]),
+                a(href: '/#pricing', [
+                  .text('Pricing'),
+                ]),
+                a(href: '/terms-conditions', [
+                  .text('Terms & Conditions'),
+                ]),
+                a(href: '/privacy-policy', [
+                  .text('Privacy Policy'),
+                ]),
+              ],
+            ),
+            div(
+              classes: 'navigation-buttons',
+              [
+                img(
+                  src: SvgAssets.playStore,
+                  width: 32,
+                  height: 32,
+                  styles: Styles(
+                    margin: .symmetric(horizontal: 14.px),
+                  ),
+                ),
+                img(
+                  src: SvgAssets.appStore,
+                  width: 32,
+                  height: 32,
+                  styles: Styles(
+                    margin: .symmetric(horizontal: 14.px),
+                  ),
+                ),
+                img(
+                  src: SvgAssets.twitter,
+                  width: 32,
+                  height: 32,
+                  styles: Styles(
+                    margin: .symmetric(horizontal: 14.px),
+                  ),
+                ),
+                img(
+                  src: SvgAssets.linkedin,
+                  width: 32,
+                  height: 32,
+                  styles: Styles(
+                    margin: .symmetric(horizontal: 14.px),
+                  ),
+                ),
+                img(
+                  src: SvgAssets.facebook,
+                  width: 32,
+                  height: 32,
+                  styles: Styles(
+                    margin: .symmetric(horizontal: 14.px),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
@@ -185,6 +202,7 @@ class Footer extends StatelessComponent {
     css('.footer').styles(
       display: .flex,
       width: 100.percent,
+      margin: .only(top: 50.px),
       flexDirection: .column,
       alignItems: .center,
       backgroundColor: AppColors.primaryBlue,
@@ -192,7 +210,7 @@ class Footer extends StatelessComponent {
     css('.footer-body').styles(
       display: .flex,
       width: 100.percent,
-      margin: .only(left: 100.px, right: 100.px, top: 80.px),
+      margin: .only(left: 100.px, right: 100.px),
       flexDirection: .column,
       alignItems: .center,
     ),
@@ -234,7 +252,7 @@ class Footer extends StatelessComponent {
     css('.footer-navigation').styles(
       display: .flex,
       width: 100.percent,
-      padding: .only(left: 100.px, right: 100.px, bottom: 50.px),
+      padding: .only(left: 100.px, right: 100.px, bottom: 50.px, top: 50.px),
       boxSizing: .borderBox,
       flexDirection: .row,
       alignItems: .center,
@@ -299,7 +317,7 @@ class Footer extends StatelessComponent {
       width: 100.percent,
     ),
     css('.footer-divider').styles(
-      margin: .symmetric(horizontal: 100.px, vertical: 50.px),
+      margin: .symmetric(horizontal: 100.px),
     ),
     css.media(MediaQuery.screen(maxWidth: 768.px), [
       css('.footer-body').styles(

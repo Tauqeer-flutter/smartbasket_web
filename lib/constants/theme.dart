@@ -2,10 +2,6 @@ import 'package:jaspr/dom.dart';
 
 import 'app_colors.dart';
 
-// As your CSS styles are defined using just Dart, you can simply
-// use global variables or methods for common things like colors.
-const primaryColor = Color('#01589B');
-
 // Defines the global CSS styles for this project.
 //
 // By using the @css annotation, these will be rendered automatically to CSS and included in your page.
@@ -21,6 +17,9 @@ List<StyleRule> get styles => [
     padding: .zero,
     margin: .zero,
     fontFamily: const .list([FontFamily('Instrument Sans'), FontFamilies.sansSerif]),
+    raw: {
+      'scroll-behavior': 'smooth',
+    },
   ),
   css('button').styles(
     padding: .symmetric(horizontal: 34.px, vertical: 8.px),
